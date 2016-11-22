@@ -14,38 +14,16 @@
     				<p>{{week}}</p>
     					<!-- {{$index}} -->
     				<ul v-bind:style="taskListSty">
-    					<li class="task-list-item" v-for="detail in taskDetail[$index]" v-bind:style="detail.styleObj">
+    					<li class="task-list-item" v-for="detail in taskDetail[$index]" v-bind:style="detail.styleObj" @click="showDetail(detail)">
     						<p>{{detail.dateStart}} - {{detail.dateEnd}}</p>
     						<h3>{{detail.title}}</h3>
     					</li>
     				</ul>
     			</li>
-    			<!-- <li class="task-list">
-    				<p>Monday</p>
-    				<ul>
-    					
-    				</ul>
-    			</li>
-    			<li class="task-list">
-    				<p>Monday</p>
-    				<ul>
-    					
-    				</ul>
-    			</li>
-    			<li class="task-list">
-    				<p>Monday</p>
-    				<ul>
-    					
-    				</ul>
-    			</li>
-    			<li class="task-list">
-    				<p>Monday</p>
-    				<ul>
-    					
-    				</ul>
-    			</li> -->
     		</ul>
     	</div>
+
+    	<modal :show.sync="showModal" :show-modal-detail.sync="showModalDetail">
     </div>
 </template>
 
@@ -103,6 +81,7 @@
 		background-color: #577F92;
 		width: 20%;
 		height: 50px;
+		cursor: pointer;
 
 	}
 	.task-list-item p{
@@ -120,6 +99,7 @@
 
 <script>
 
+import Modal from './Modal.vue';
 
 export default {
 	props: {
@@ -183,9 +163,13 @@ export default {
 			}
 		}
 	},
+	components: {
+		Modal: Modal
+	},
 	data() {
 		return {
-
+			showModal: false,
+			showModalDetail: {},
 			taskListSty: {
 				height: '900px'
 			},
@@ -226,6 +210,13 @@ export default {
 
 		// console.log(this.taskDetail);
 		// console.log(this.weekGround);
+	},
+	methods: {
+		showDetail(obj){
+			this.showModalDetail = obj;
+			this.showModal = true;
+			console.log(this.showModalDetail);
+		}
 	}
 }
 </script>
