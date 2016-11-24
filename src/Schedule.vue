@@ -14,7 +14,7 @@
     				<p>{{week}}</p>
     					<!-- {{$index}} -->
     				<ul :style="taskListSty">
-    					<li class="task-list-item" v-for="detail in taskDetail[$index]" :style="detail.styleObj" @click="showDetail(detail)">
+    					<li class="task-list-item" v-for="detail in taskDetail[$index]" :style="detail.styleObj" @click="showDetail(detail, week)">
     						<p>{{detail.dateStart}} - {{detail.dateEnd}}</p>
     						<h3>{{detail.title}}</h3>
     					</li>
@@ -52,16 +52,13 @@
 		transform: translateY(-50%);
 	}
 	.time-ground ul li p{
-		/*content:"";*/
 		position:absolute;
 		left: 0;
 		
 		height: 1px;
 		background-color: #EAEAEA;
 	}
-	/*.line{
-		border-bottom: 1px solid #EAEAEA;
-	}*/
+
 	.task-ground{
 		width: 100%;
 	}
@@ -100,6 +97,7 @@
 <script>
 
 import Modal from './Modal.vue';
+
 
 export default {
 	props: {
@@ -149,7 +147,7 @@ export default {
 			default: []
 		},
 		color: {
-			type: Object,
+			type: Array,
 			default(){
 				return [
 					"#2B2E4A",
@@ -173,6 +171,7 @@ export default {
 				dateStart: '09:30',
 				dateEnd: '10:30',
 				title: 'Metting',
+				week: 'Monday',
 				styleObj: {
 					backgroundColor: "#903749"
 				},
@@ -188,11 +187,30 @@ export default {
 	},
 	created() {
 		// console.log(this.ta)
+		let maxTime = this.timeGround[this.timeGround.length - 1];
+		let minTime = this.timeGround[0];
+
+		let maxMin = maxTime.split(':')[0] * 60 + maxTime.split(':')[1] * 1;
+		let minMin = minTime.split(':')[0] * 60 + minTime.split(':')[1] * 1;
+
+		// console.log(maxMin);
+		// console.log(minMin);
+
+		// console.log(maxTime);
 		for (let i = 0; i < this.taskDetail.length; i++) {
 		    for (let j = 0; j < this.taskDetail[i].length; j++) {
+
+		    	// console.log(this.taskDetail[i][j]);
+
 		        let startMin = this.taskDetail[i][j].dateStart.split(':')[0] * 60 + this.taskDetail[i][j].dateStart.split(':')[1] * 1;
 		        let endMin = this.taskDetail[i][j].dateEnd.split(':')[0] * 60 + this.taskDetail[i][j].dateEnd.split(':')[1] * 1;
 
+		        if(startMin < minMin || endMin > maxMin) {
+		        	this.taskDetail[i].splice(j, 1);
+		        	j--;
+		        	continue
+		        };
+		        // console.log(endMin);
 
 		        let difMin = endMin - startMin;
 		        // console.log(startMin);
@@ -201,7 +219,7 @@ export default {
 		        this.taskDetail[i][j].styleObj = {
 		            height: difMin * 100 / 60 + 'px',
 		            top: ((startMin - (this.timeGround[0].split(":")[0] * 60 + this.timeGround[0].split(":")[1] * 1)) * 100 / 60) + 50 + 'px',
-		            backgroundColor: this.color[~~(Math.random() * 6)]
+		            backgroundColor: this.color[~~(Math.random() * this.color.length)]
 		        }
 
 		        // console.log(this.color[~~(Math.random() * 4)]);
@@ -209,6 +227,8 @@ export default {
 		        // console.log(this.timeGround);
 		    }
 		}
+
+		console.log(this.taskDetail);
 	},
 	compiled() {
 		this.taskListSty.height = (this.timeGround.length - 1) * 100 + 'px';
@@ -220,10 +240,14 @@ export default {
 		// console.log(this.weekGround);
 	},
 	methods: {
-		showDetail(obj){
+		showDetail(obj, week){
+			// console.log(week);
+			obj.week = week;
 			this.showModalDetail = obj;
+			// this.showModalDetail.week = week;
 			this.showModal = true;
 			console.log(this.showModalDetail);
+			// console.log(week);
 		}
 	}
 }

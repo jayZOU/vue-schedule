@@ -9,7 +9,7 @@
 	        
 	        <div class="modal-body">
 	        	<h2>{{showModalDetail.title}}</h2>
-	        	<small>{{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>
+	        	<small>{{showModalDetail.week}}  {{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>
 	        	<p>{{showModalDetail.detail}}</p>
 	        </div>
 
@@ -111,8 +111,7 @@
 			},
 			showModalDetail: {
 				type: Object,
-				default(){
-				}
+				default(){}
 			},
 		},
 
