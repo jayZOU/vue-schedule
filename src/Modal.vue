@@ -1,5 +1,5 @@
 <template>
-	<div class="modal-mask" v-show="show" transition="modal" @click="show = false">
+	<div class="modal-mask" v-show="show" transition="modal" v-on:click="close">
 	    <div class="modal-wrapper">
 	      <div class="modal-container" :style="{'backgroundColor': showModalDetail.styleObj.backgroundColor}">
 
@@ -75,7 +75,7 @@
 		font-weight: bold;
 	}
 	.modal-body p {
-		font-size: 1rem;
+		font-size: 0.8rem;
 		text-align: left;
 
 	}
@@ -115,6 +115,14 @@
 				}
 			},
 		},
+
+		methods: {
+			close(e) {
+				if(e.target.className == "modal-wrapper") this.show = false;
+				// console.log(e);
+				// console.log(e.target.className)
+			}
+		}
 
 
 

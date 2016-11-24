@@ -11034,7 +11034,7 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.modal-mask[_v-f629f552] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n\n.modal-wrapper[_v-f629f552] {\n  display: table-cell;\n  vertical-align: middle;\n}\n\n.modal-container[_v-f629f552] {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n  color: #FFF;\n}\n\n.close[_v-f629f552]{\n\tfloat: right;\n\tmargin: -0.5rem -1rem 0 0;\n\ttext-decoration: none;\n\tcolor: #fff;\n\tfont-size: 1rem;\n\tcursor: pointer;\n}\n\n.modal-body[_v-f629f552] {\n\ttext-align: center;\n  margin: 20px 0;\n}\n.modal-body h2[_v-f629f552]{\n\tfont-size: 1.5rem;\n\tfont-weight: bold;\n}\n.modal-body p[_v-f629f552] {\n\tfont-size: 1rem;\n\ttext-align: left;\n\n}\n\n.modal-body small[_v-f629f552]{\n\tdisplay: block;\n\tfont-size: 0.8rem;\n\tmargin: 20px 0;\n\t/*font-weight: bold;*/\n}\n\n.modal-default-button[_v-f629f552] {\n  float: right;\n}\n\n.modal-enter[_v-f629f552], .modal-leave[_v-f629f552] {\n  opacity: 0;\n}\n\n.modal-enter .modal-container[_v-f629f552],\n.modal-leave .modal-container[_v-f629f552] {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.modal-mask[_v-f629f552] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n\n.modal-wrapper[_v-f629f552] {\n  display: table-cell;\n  vertical-align: middle;\n}\n\n.modal-container[_v-f629f552] {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n  color: #FFF;\n}\n\n.close[_v-f629f552]{\n\tfloat: right;\n\tmargin: -0.5rem -1rem 0 0;\n\ttext-decoration: none;\n\tcolor: #fff;\n\tfont-size: 1rem;\n\tcursor: pointer;\n}\n\n.modal-body[_v-f629f552] {\n\ttext-align: center;\n  margin: 20px 0;\n}\n.modal-body h2[_v-f629f552]{\n\tfont-size: 1.5rem;\n\tfont-weight: bold;\n}\n.modal-body p[_v-f629f552] {\n\tfont-size: 0.8rem;\n\ttext-align: left;\n\n}\n\n.modal-body small[_v-f629f552]{\n\tdisplay: block;\n\tfont-size: 0.8rem;\n\tmargin: 20px 0;\n\t/*font-weight: bold;*/\n}\n\n.modal-default-button[_v-f629f552] {\n  float: right;\n}\n\n.modal-enter[_v-f629f552], .modal-leave[_v-f629f552] {\n  opacity: 0;\n}\n\n.modal-enter .modal-container[_v-f629f552],\n.modal-leave .modal-container[_v-f629f552] {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n", ""]);
 
 	// exports
 
@@ -11058,6 +11058,12 @@
 				type: Object,
 				default: function _default() {}
 			}
+		},
+
+		methods: {
+			close: function close(e) {
+				if (e.target.className == "modal-wrapper") this.show = false;
+			}
 		}
 
 	};
@@ -11066,7 +11072,7 @@
 /* 14 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\" @click=\"show = false\" _v-f629f552=\"\">\n    <div class=\"modal-wrapper\" _v-f629f552=\"\">\n      <div class=\"modal-container\" :style=\"{'backgroundColor': showModalDetail.styleObj.backgroundColor}\" _v-f629f552=\"\">\n\n        <div class=\"modal-header\" _v-f629f552=\"\">\n          <a class=\"close\" @click=\"show = false\" _v-f629f552=\"\">X</a>\n        </div>\n        \n        <div class=\"modal-body\" _v-f629f552=\"\">\n        \t<h2 _v-f629f552=\"\">{{showModalDetail.title}}</h2>\n        \t<small _v-f629f552=\"\">{{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>\n        \t<p _v-f629f552=\"\">{{showModalDetail.detail}}</p>\n        </div>\n\n        <!-- <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            default footer\n            <button class=\"modal-default-button\"\n              @click=\"show = false\">\n              OK\n            </button>\n          </slot>\n        </div> -->\n      </div>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\" v-on:click=\"close\" _v-f629f552=\"\">\n    <div class=\"modal-wrapper\" _v-f629f552=\"\">\n      <div class=\"modal-container\" :style=\"{'backgroundColor': showModalDetail.styleObj.backgroundColor}\" _v-f629f552=\"\">\n\n        <div class=\"modal-header\" _v-f629f552=\"\">\n          <a class=\"close\" @click=\"show = false\" _v-f629f552=\"\">X</a>\n        </div>\n        \n        <div class=\"modal-body\" _v-f629f552=\"\">\n        \t<h2 _v-f629f552=\"\">{{showModalDetail.title}}</h2>\n        \t<small _v-f629f552=\"\">{{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>\n        \t<p _v-f629f552=\"\">{{showModalDetail.detail}}</p>\n        </div>\n\n        <!-- <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            default footer\n            <button class=\"modal-default-button\"\n              @click=\"show = false\">\n              OK\n            </button>\n          </slot>\n        </div> -->\n      </div>\n    </div>\n</div>\n";
 
 /***/ },
 /* 15 */
