@@ -4,7 +4,7 @@
     		<ul>
     			<li v-for="time in timeGround">
     				<span>{{time}}</span>
-    				<p :style="timeListSty"></p>
+    				<p v-bind:style="timeListSty"></p>
     			</li>
     		</ul>
     	</div>
@@ -13,8 +13,8 @@
     			<li v-for="week in weekGround" class="task-list">
     				<p>{{week}}</p>
     					<!-- {{$index}} -->
-    				<ul :style="taskListSty">
-    					<li class="task-list-item" v-for="detail in taskDetail[$index]" :style="detail.styleObj" @click="showDetail(detail)">
+    				<ul v-bind:style="taskListSty">
+    					<li class="task-list-item" v-for="detail in taskDetail[$index]" v-bind:style="detail.styleObj" @click="showDetail(detail)">
     						<p>{{detail.dateStart}} - {{detail.dateEnd}}</p>
     						<h3>{{detail.title}}</h3>
     					</li>
@@ -169,15 +169,7 @@ export default {
 	data() {
 		return {
 			showModal: false,
-			showModalDetail: {
-				dateStart: '09:30',
-				dateEnd: '10:30',
-				title: 'Metting',
-				styleObj: {
-					backgroundColor: "#903749"
-				},
-				detail: 'Metting (German: Mettingen) is a commune in the Moselle department in Grand Est in north-eastern France.'
-			},
+			showModalDetail: {},
 			taskListSty: {
 				height: '900px'
 			},

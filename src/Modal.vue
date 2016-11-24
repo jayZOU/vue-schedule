@@ -1,7 +1,7 @@
 <template>
-	<div class="modal-mask" v-show="show" transition="modal" @click="show = false">
+	<div class="modal-mask" v-show="show" transition="modal">
 	    <div class="modal-wrapper">
-	      <div class="modal-container" :style="{'backgroundColor': showModalDetail.styleObj.backgroundColor}">
+	      <div class="modal-container">
 
 	        <div class="modal-header">
 	          <a class="close" @click="show = false">X</a>
@@ -54,14 +54,13 @@
 	  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
 	  transition: all .3s ease;
 	  font-family: Helvetica, Arial, sans-serif;
-	  color: #FFF;
 	}
 
 	.close{
 		float: right;
 		margin: -0.5rem -1rem 0 0;
 		text-decoration: none;
-		color: #fff;
+		color: #000;
 		font-size: 1rem;
 		cursor: pointer;
 	}
@@ -83,6 +82,7 @@
 	.modal-body small{
 		display: block;
 		font-size: 0.8rem;
+		color: #95a5a6;
 		margin: 20px 0;
 		/*font-weight: bold;*/
 	}
@@ -111,11 +111,11 @@
 			},
 			showModalDetail: {
 				type: Object,
-				default(){}
+				default(){
+					return {};
+				}
 			},
 		},
-
-
 
 	}
 </script>
