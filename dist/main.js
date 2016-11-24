@@ -10517,7 +10517,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\Schedule.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(10)
+	__vue_template__ = __webpack_require__(15)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -10869,7 +10869,7 @@
 		value: true
 	});
 
-	var _Modal = __webpack_require__(11);
+	var _Modal = __webpack_require__(10);
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
@@ -10914,7 +10914,15 @@
 		data: function data() {
 			return {
 				showModal: false,
-				showModalDetail: {},
+				showModalDetail: {
+					dateStart: '09:30',
+					dateEnd: '10:30',
+					title: 'Metting',
+					styleObj: {
+						backgroundColor: "#903749"
+					},
+					detail: 'Metting (German: Mettingen) is a commune in the Moselle department in Grand Est in north-eastern France.'
+				},
 				taskListSty: {
 					height: '900px'
 				},
@@ -10957,23 +10965,17 @@
 
 /***/ },
 /* 10 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div class=\"schedule\" _v-fbd96c46=\"\">\n\t<div class=\"time-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"time in timeGround\" _v-fbd96c46=\"\">\n\t\t\t\t<span _v-fbd96c46=\"\">{{time}}</span>\n\t\t\t\t<p v-bind:style=\"timeListSty\" _v-fbd96c46=\"\"></p>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"task-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"week in weekGround\" class=\"task-list\" _v-fbd96c46=\"\">\n\t\t\t\t<p _v-fbd96c46=\"\">{{week}}</p>\n\t\t\t\t\t<!-- {{$index}} -->\n\t\t\t\t<ul v-bind:style=\"taskListSty\" _v-fbd96c46=\"\">\n\t\t\t\t\t<li class=\"task-list-item\" v-for=\"detail in taskDetail[$index]\" v-bind:style=\"detail.styleObj\" @click=\"showDetail(detail)\" _v-fbd96c46=\"\">\n\t\t\t\t\t\t<p _v-fbd96c46=\"\">{{detail.dateStart}} - {{detail.dateEnd}}</p>\n\t\t\t\t\t\t<h3 _v-fbd96c46=\"\">{{detail.title}}</h3>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\n\t<modal :show.sync=\"showModal\" :show-modal-detail.sync=\"showModalDetail\" _v-fbd96c46=\"\">\n</modal></div>\n";
-
-/***/ },
-/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
 	var __vue_styles__ = {}
-	__webpack_require__(12)
-	__vue_script__ = __webpack_require__(14)
+	__webpack_require__(11)
+	__vue_script__ = __webpack_require__(13)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\Modal.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(15)
+	__vue_template__ = __webpack_require__(14)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	var __vue_options__ = typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports
@@ -10998,13 +11000,13 @@
 	})()}
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(13);
+	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(8)(content, {});
@@ -11024,7 +11026,7 @@
 	}
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(7)();
@@ -11032,13 +11034,13 @@
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.modal-mask[_v-f629f552] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n\n.modal-wrapper[_v-f629f552] {\n  display: table-cell;\n  vertical-align: middle;\n}\n\n.modal-container[_v-f629f552] {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n}\n\n.close[_v-f629f552]{\n\tfloat: right;\n\tmargin: -0.5rem -1rem 0 0;\n\ttext-decoration: none;\n\tcolor: #000;\n\tfont-size: 1rem;\n\tcursor: pointer;\n}\n\n.modal-body[_v-f629f552] {\n\ttext-align: center;\n  margin: 20px 0;\n}\n.modal-body h2[_v-f629f552]{\n\tfont-size: 1.5rem;\n\tfont-weight: bold;\n}\n.modal-body p[_v-f629f552] {\n\tfont-size: 1rem;\n\ttext-align: left;\n\n}\n\n.modal-body small[_v-f629f552]{\n\tdisplay: block;\n\tfont-size: 0.8rem;\n\tcolor: #95a5a6;\n\tmargin: 20px 0;\n\t/*font-weight: bold;*/\n}\n\n.modal-default-button[_v-f629f552] {\n  float: right;\n}\n\n.modal-enter[_v-f629f552], .modal-leave[_v-f629f552] {\n  opacity: 0;\n}\n\n.modal-enter .modal-container[_v-f629f552],\n.modal-leave .modal-container[_v-f629f552] {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.modal-mask[_v-f629f552] {\n  position: fixed;\n  z-index: 9998;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, .5);\n  display: table;\n  -webkit-transition: opacity .3s ease;\n  transition: opacity .3s ease;\n}\n\n.modal-wrapper[_v-f629f552] {\n  display: table-cell;\n  vertical-align: middle;\n}\n\n.modal-container[_v-f629f552] {\n  width: 50%;\n  margin: 0px auto;\n  padding: 20px 30px;\n  background-color: #fff;\n  border-radius: 2px;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n  -webkit-transition: all .3s ease;\n  transition: all .3s ease;\n  font-family: Helvetica, Arial, sans-serif;\n  color: #FFF;\n}\n\n.close[_v-f629f552]{\n\tfloat: right;\n\tmargin: -0.5rem -1rem 0 0;\n\ttext-decoration: none;\n\tcolor: #fff;\n\tfont-size: 1rem;\n\tcursor: pointer;\n}\n\n.modal-body[_v-f629f552] {\n\ttext-align: center;\n  margin: 20px 0;\n}\n.modal-body h2[_v-f629f552]{\n\tfont-size: 1.5rem;\n\tfont-weight: bold;\n}\n.modal-body p[_v-f629f552] {\n\tfont-size: 1rem;\n\ttext-align: left;\n\n}\n\n.modal-body small[_v-f629f552]{\n\tdisplay: block;\n\tfont-size: 0.8rem;\n\tmargin: 20px 0;\n\t/*font-weight: bold;*/\n}\n\n.modal-default-button[_v-f629f552] {\n  float: right;\n}\n\n.modal-enter[_v-f629f552], .modal-leave[_v-f629f552] {\n  opacity: 0;\n}\n\n.modal-enter .modal-container[_v-f629f552],\n.modal-leave .modal-container[_v-f629f552] {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -11054,19 +11056,23 @@
 			},
 			showModalDetail: {
 				type: Object,
-				default: function _default() {
-					return {};
-				}
+				default: function _default() {}
 			}
 		}
 
 	};
 
 /***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\" @click=\"show = false\" _v-f629f552=\"\">\n    <div class=\"modal-wrapper\" _v-f629f552=\"\">\n      <div class=\"modal-container\" :style=\"{'backgroundColor': showModalDetail.styleObj.backgroundColor}\" _v-f629f552=\"\">\n\n        <div class=\"modal-header\" _v-f629f552=\"\">\n          <a class=\"close\" @click=\"show = false\" _v-f629f552=\"\">X</a>\n        </div>\n        \n        <div class=\"modal-body\" _v-f629f552=\"\">\n        \t<h2 _v-f629f552=\"\">{{showModalDetail.title}}</h2>\n        \t<small _v-f629f552=\"\">{{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>\n        \t<p _v-f629f552=\"\">{{showModalDetail.detail}}</p>\n        </div>\n\n        <!-- <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            default footer\n            <button class=\"modal-default-button\"\n              @click=\"show = false\">\n              OK\n            </button>\n          </slot>\n        </div> -->\n      </div>\n    </div>\n</div>\n";
+
+/***/ },
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"modal-mask\" v-show=\"show\" transition=\"modal\" _v-f629f552=\"\">\n    <div class=\"modal-wrapper\" _v-f629f552=\"\">\n      <div class=\"modal-container\" _v-f629f552=\"\">\n\n        <div class=\"modal-header\" _v-f629f552=\"\">\n          <a class=\"close\" @click=\"show = false\" _v-f629f552=\"\">X</a>\n        </div>\n        \n        <div class=\"modal-body\" _v-f629f552=\"\">\n        \t<h2 _v-f629f552=\"\">{{showModalDetail.title}}</h2>\n        \t<small _v-f629f552=\"\">{{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>\n        \t<p _v-f629f552=\"\">{{showModalDetail.detail}}</p>\n        </div>\n\n        <!-- <div class=\"modal-footer\">\n          <slot name=\"footer\">\n            default footer\n            <button class=\"modal-default-button\"\n              @click=\"show = false\">\n              OK\n            </button>\n          </slot>\n        </div> -->\n      </div>\n    </div>\n</div>\n";
+	module.exports = "\n<div class=\"schedule\" _v-fbd96c46=\"\">\n\t<div class=\"time-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"time in timeGround\" _v-fbd96c46=\"\">\n\t\t\t\t<span _v-fbd96c46=\"\">{{time}}</span>\n\t\t\t\t<p :style=\"timeListSty\" _v-fbd96c46=\"\"></p>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"task-ground\" _v-fbd96c46=\"\">\n\t\t<ul _v-fbd96c46=\"\">\n\t\t\t<li v-for=\"week in weekGround\" class=\"task-list\" _v-fbd96c46=\"\">\n\t\t\t\t<p _v-fbd96c46=\"\">{{week}}</p>\n\t\t\t\t\t<!-- {{$index}} -->\n\t\t\t\t<ul :style=\"taskListSty\" _v-fbd96c46=\"\">\n\t\t\t\t\t<li class=\"task-list-item\" v-for=\"detail in taskDetail[$index]\" :style=\"detail.styleObj\" @click=\"showDetail(detail)\" _v-fbd96c46=\"\">\n\t\t\t\t\t\t<p _v-fbd96c46=\"\">{{detail.dateStart}} - {{detail.dateEnd}}</p>\n\t\t\t\t\t\t<h3 _v-fbd96c46=\"\">{{detail.title}}</h3>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\n\t<modal :show.sync=\"showModal\" :show-modal-detail.sync=\"showModalDetail\" _v-fbd96c46=\"\">\n</modal></div>\n";
 
 /***/ }
 /******/ ]);
