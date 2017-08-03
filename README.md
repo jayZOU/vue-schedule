@@ -33,7 +33,7 @@
 	</div>
 ```
 
-##CommonJS
+## CommonJS
 ```javascript
 	var Vue = require('vue');
 	var Schedule = require('vue-schedule');
@@ -45,7 +45,7 @@
 	})
 ```
 
-##ES6
+## ES6
 ```javascript
 	import Vue from 'vue';
 	import Schedule from 'vue-schedule';
@@ -57,27 +57,27 @@
 	})
 ```
 
-##props
-**time-ground:**时间范围
+## props
+**time-ground:**  时间范围  
 示例	
 ```javascript
 	:time-ground="['09:00', '18:00']" 
 ```
 
-**week-ground:**星期
+**week-ground:**  星期  
 示例	
 ```javascript
 	:week-ground="['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']" 
 ```
 
-**color:**颜色填充
-示例	
+**color:**  颜色填充  
+示例	  
 ```javascript
 	:color="['#2B2E4A','#521262','#903749','#53354A','#40514E','#537780']" 
 ```
 
-**task-detail:**具体事项，具体事项需要与星期对应
-示例	
+**task-detail:**  具体事项，具体事项需要与星期对应  
+示例	  
 ```javascript
 	:task-detail = "
 		[ 
