@@ -2,11 +2,11 @@
 
 > Vue.js file schedule component
 
-##install
+## install
 
     npm install vue-schedule --save
 
-##Example
+## Example
 [http://jayzou.github.io/demo/vue-schedule/index.html](http://jayzou.github.io/demo/vue-schedule/index.html)
 ```Html
 	<div id="app">
@@ -151,3 +151,9 @@
 		]
 	"
 ```
+
+## change log
+[vue1.x][1]
+
+
+  [1]: https://github.com/jayZOU/vue-schedule/tree/vue1.x

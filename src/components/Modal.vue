@@ -1,30 +1,23 @@
 <template>
-	<div class="modal-mask" v-show="show" transition="modal" v-on:click="close">
-	    <div class="modal-wrapper">
-	      <div class="modal-container" :style="{'backgroundColor': showModalDetail.styleObj.backgroundColor}">
+	<transition name="modal">
+		<div class="modal-mask" v-show="modalShow" @click="close">
+				<div class="modal-wrapper">
+			      <div class="modal-container" :style="{'backgroundColor': showModalDetail.styleObj.backgroundColor}">
 
-	        <div class="modal-header">
-	          <a class="close" @click="show = false">X</a>
-	        </div>
-	        
-	        <div class="modal-body">
-	        	<h2>{{showModalDetail.title}}</h2>
-	        	<small>{{showModalDetail.week}}  {{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>
-	        	<p>{{showModalDetail.detail}}</p>
-	        </div>
-
-	        <!-- <div class="modal-footer">
-	          <slot name="footer">
-	            default footer
-	            <button class="modal-default-button"
-	              @click="show = false">
-	              OK
-	            </button>
-	          </slot>
-	        </div> -->
-	      </div>
-	    </div>
-	</div>
+			        <div class="modal-header">
+			          <a class="close" @click="modalShow = false">X</a>
+			        </div>
+			        
+			        <div class="modal-body">
+			        	<h2>{{showModalDetail.title}}</h2>
+			        	<small>{{showModalDetail.week}}  {{showModalDetail.dateStart}} - {{showModalDetail.dateEnd}}</small>
+			        	<p>{{showModalDetail.detail}}</p>
+			        </div>
+			      </div>
+			    </div>
+		    
+		</div>
+	</transition>
 </template>
 
 <style scoped>
@@ -39,12 +32,10 @@
 	  display: table;
 	  transition: opacity .3s ease;
 	}
-
 	.modal-wrapper {
 	  display: table-cell;
 	  vertical-align: middle;
 	}
-
 	.modal-container {
 	  width: 50%;
 	  margin: 0px auto;
@@ -56,7 +47,6 @@
 	  font-family: Helvetica, Arial, sans-serif;
 	  color: #FFF;
 	}
-
 	.close{
 		float: right;
 		margin: -0.5rem -1rem 0 0;
@@ -65,7 +55,6 @@
 		font-size: 1rem;
 		cursor: pointer;
 	}
-
 	.modal-body {
 		text-align: center;
 	  margin: 20px 0;
@@ -77,26 +66,24 @@
 	.modal-body p {
 		font-size: 0.8rem;
 		text-align: left;
-
 	}
-
 	.modal-body small{
 		display: block;
 		font-size: 0.8rem;
 		margin: 20px 0;
 		/*font-weight: bold;*/
 	}
-
 	.modal-default-button {
 	  float: right;
 	}
-
-	.modal-enter, .modal-leave {
+	.modal-enter{
 	  opacity: 0;
 	}
-
+	.modal-leave-active {
+	  opacity: 0;
+	}
 	.modal-enter .modal-container,
-	.modal-leave .modal-container {
+	.modal-leave-active .modal-container {
 	  -webkit-transform: scale(1.1);
 	  transform: scale(1.1);
 	}
@@ -104,6 +91,12 @@
 
 <script>
 	export default {
+		name: 'Modal',
+		data(){
+			return {
+				modalShow: false
+			}
+		},
 		props: {
 			show: {
 				type: Boolean,
@@ -114,16 +107,24 @@
 				default(){}
 			},
 		},
-
+		watch: {
+			show(value){
+				console.log('value=',value);
+				this.modalShow = true;
+			}
+		},
+		created(){
+			this.modalShow = this.show;
+		},
 		methods: {
 			close(e) {
-				if(e.target.className == "modal-wrapper") this.show = false;
+				if(e.target.className == "modal-wrapper") {
+					this.modalShow = false;
+					// this.show = false;
+				}
 				// console.log(e);
 				// console.log(e.target.className)
 			}
 		}
-
-
-
 	}
 </script>
