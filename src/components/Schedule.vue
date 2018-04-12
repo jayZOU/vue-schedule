@@ -53,7 +53,7 @@
 	.time-ground ul li p{
 		position:absolute;
 		left: 0;
-		
+
 		height: 1px;
 		background-color: #EAEAEA;
 	}
@@ -62,7 +62,7 @@
 	}
 	.task-list{
 		float: left;
-		width: 20%;
+		width: 14%;
 		box-sizing:border-box;
 		border:1px solid #EAEAEA;
 	}
@@ -74,7 +74,7 @@
 	.task-list-item{
 		position: absolute;
 		background-color: #577F92;
-		width: 20%;
+		width: 14%;
 		height: 50px;
 		cursor: pointer;
 	}
@@ -138,7 +138,7 @@ export default {
 	// },
 	watch: {
 		timeGround(value) {
-			
+
 				// console.log('value=', value);
 				this.pageTimeGround = this.initTimeGroud(value);
 				// return value;
@@ -163,7 +163,7 @@ export default {
 			},
 			timeListSty: {
 				width: '100%'
-			}	
+			}
 		}
 	},
 	created() {
@@ -205,8 +205,8 @@ export default {
 	},
 	mounted() {
 		this.taskListSty.height = (this.pageTimeGround.length - 1) * 100 + 'px';
-		this.timeListSty.width = this.weekGround.length * 20 + '%';
-		
+		this.timeListSty.width = this.weekGround.length * 14 + '%';
+
 		// console.log(this.taskDetail);
 		// console.log(this.weekGround);
 	},

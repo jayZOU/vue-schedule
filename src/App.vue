@@ -1,8 +1,9 @@
 <template>
+  <!--Saturday-->
   <div id="app">
-    <Schedule 
-      :time-ground="['09:00', '18:00']" 
-      :week-ground="['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']" 
+    <Schedule
+      :time-ground="['09:00', '21:00']"
+      :week-ground="['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']"
       :color="[
         '#2B2E4A',
         '#521262',
@@ -10,7 +11,7 @@
         '#53354A',
         '#40514E',
         '#537780',
-      ]" 
+      ]"
       :task-detail="[
         [
           {
@@ -25,7 +26,7 @@
             title: 'Metting',
             detail: 'Metting (German: Mettingen) is a commune in the Moselle department in Grand Est in north-eastern France.'
           },
-          
+
         ],
         [
           {
@@ -38,7 +39,7 @@
             dateEnd: '14:50',
             title: 'Metting',
           }
-          
+
         ],
         [
           {
@@ -51,7 +52,7 @@
             dateEnd: '16:50',
             title: 'Metting',
           }
-          
+
         ],
         [
           {
@@ -64,7 +65,7 @@
             dateEnd: '13:50',
             title: 'Metting',
           }
-          
+
         ],
         [
           {
@@ -77,10 +78,23 @@
             dateEnd: '15:50',
             title: 'Metting',
           }
-          
+
+        ],
+        [
+          {
+            dateStart: '14:30',
+            dateEnd: '15:30',
+            title: 'Metting',
+          },
+          {
+            dateStart: '17:30',
+            dateEnd: '19:50',
+            title: 'Metting',
+          }
+
         ]
       ]">
-        
+
     </Schedule>
   </div>
 </template>
