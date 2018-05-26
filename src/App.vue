@@ -100,13 +100,8 @@
 </template>
 
 <script>
-import Schedule from './components/Schedule'
-
 export default {
-  name: 'app',
-  components: {
-    Schedule
-  }
+  name: 'app'
 }
 </script>
 
