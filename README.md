@@ -37,7 +37,7 @@
 ```javascript
 	//main.js
 	var Vue = require('vue');
-	const Schedule = require('./schedule')
+	const Schedule = require('vue-schedule')
 	Vue.use(Schedule)
 	new Vue({
 	    el: '#app',
@@ -49,7 +49,7 @@
 ## ES6
 ```javascript
 	import Vue from 'vue';
-	import Schedule from './schedule'
+	import Schedule from 'vue-schedule'
 
 	Vue.use(Schedule)
 	new Vue({
